@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0); /* Transparent background */
+            color: Black; /* White text color */
+            font-size: 32px; /* Adjust the text size as needed */
+            font-family: Arial, sans-serif; /* Choose a suitable font */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            width: 120%;
+        }
+    </style>
+    <title>Rewards!!</title>
+</head>
+<body>
+
+    <h2>Rewards!!</h2>
+
+    <ul id="choresList">
+        <li><span>Piece of candy</span><span>1</span></li>
+        <li><span>Cookie</span><span>1</span></li>
+        <li><span>A toy under $5</span><span>10</span></li>
+        <li><span>A toy under $10</span><span>15</span></li>
+        <li><span>A toy under $20</span><span>20</span></li>
+        <li><span>A video game</span><span>30</span></li>
+        <li><span>Fizzy Juice</span><span>5</span></li>
+        <li><span>Skip my Chores!</span><span>10</span></li>
+        
+    </ul>
+
+    <script>
+        // JavaScript to sort chores based on points in descending order
+        const choresList = document.getElementById('choresList');
+        const chores = Array.from(choresList.children);
+
+        chores.sort((a, b) => {
+            const pointsA = parseInt(a.lastElementChild.innerText);
+            const pointsB = parseInt(b.lastElementChild.innerText);
+            return pointsB - pointsA;
+        });
+
+        chores.forEach(chore => choresList.appendChild(chore));
+    </script>
+
+</body>
+</html>
